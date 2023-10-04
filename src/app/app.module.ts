@@ -1,0 +1,66 @@
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule  } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+//import { environment } from '../environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+//import { ProfileComponent } from './components/profile/profile.component';
+//import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { MatSelectModule } from '@angular/material/select'
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { environment } from '../environment/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { HomeComponent } from './components/home/home.component';
+import { SignUpComponent } from './components/signup/signup.component';
+
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    SignUpComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    MatSelectModule,
+    provideDatabase(() => getDatabase()),
+    providePerformance(() => getPerformance())
+
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+})
+export class AppModule { }

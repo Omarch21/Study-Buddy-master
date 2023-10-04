@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "study-buddy-e8b57": {
+      "hosting": {
+        "sb": [
+          "study-buddy-e8b57"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "study-buddy-e8b57"
+  }
+}
